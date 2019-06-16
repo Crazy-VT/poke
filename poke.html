@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.4.1.js"></script>
+    <script src="poke.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .box{
+            width: 800px;
+            height: 600px;
+            background: #00c1de;
+            position: relative;
+            margin: 0 auto;
+
+        }
+        .poke{
+            width: 90px;
+            height: 120px;
+            /*background: #39ee06;*/
+            position: absolute;
+            top: 0;
+            left: 350px;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+        }
+        .active{
+            /*background: #dc3a0d;*/
+        }
+        .button{
+            padding: 10px;
+            position: absolute;
+            background: #39ee06;
+            border-radius: 10px;
+            color: white;
+            top: 425px;
+            left: 10px;
+            border: none;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <input type="button" class="button" value="切换"/>
+    </div>
+</body>
+</html>
