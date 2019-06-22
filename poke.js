@@ -21,15 +21,15 @@ $(function () {
             index++;
             let obj=poke[index];
             let tops=50*i-1,lefts=350-50*i+100*j;
-            $('<div>').addClass('poke').attr('id',i+"_"+j)
+            $('<div>').addClass('poke top').attr('id',i+"_"+j)
                 .css({backgroundImage:`url(./imgs/${obj.num}${obj.color}.jpg`})
                 .html('').appendTo('.box').delay(index*100)
                 .data('num',obj.num)
                 .animate({left:lefts,top:tops,opacity:1})
-                // .index()
         }
     }
-    let index2=index;
+    let index2=index+1;
+    console.log(index2);
     for(;index<52;index++){
         // console.log(index);
         let obj=poke[index];
@@ -49,11 +49,6 @@ $(function () {
         let str1=parseInt(str[1]);
         let id1= (str0+1)+"_"+(str1);
         let id2= (str0+1)+"_"+(str1+1);
-        // let arr=$('.box').children().filter(function (index,value){
-        //     if(value.id==id2 ||  value.id== id1){
-        //             return value;
-        //     }
-        // });
         if($('#'+id1).length || $('#'+id2).length){
             return;
         }
@@ -66,24 +61,28 @@ $(function () {
             first=_this;
         }else {
             if(first.data('num')+_this.data('num')===14){
-                $(".active").animate({top:0,left:0,opacity:0},function () {
-                    $('.active').removeClass("active");
+                $(".active").animate({top:0,left:0,opacity:0},50,function () {
+                    $('.active').remove();
                 })
             }else{
                 $('.active').removeClass('active').animate({top:`+=30px`});
             }
             first=null;
         }
+        index2=$('.top').length;
+        console.log(index2);
     })
+
     $('.button').on('click',function () {
+        console.log(1);
         if ($('.left').hasClass('open')) {
             $('.left').animate({left:0}).removeClass('open');
-            console.log($('.left'));
         }else {
             $('.left').animate({},function () {
+                console.log($(this));
                 let index1=$(this).index();
-                $(this).animate({left:29*(index1-index2-2)}).addClass('open');
-                console.log($('.left'));
+                console.log(index1);
+                $(this).animate({left:28*(index1-index2)}).addClass('open');
             });
         }
     })
